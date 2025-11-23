@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="author" content="Emmanuel Kioko">
+    <title>Weather simulation</title>
+</head>
+<body>
+    <scrpt src="script.js" defer></scrpt>
+    <div class="container">
+        <h1 class="text-center mb-4">Weather & Energy Analysis</h1>
+        <p class="text-center text-muted">Enter a location to get current weather, historical data, and energy potential analysis</p>
+        
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Location Information</h2>
+            </div>
+            <div class="card-body">
+                <form id="locationForm">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label for="country" class="form-label">Country</label>
+                            <input type="text" class="form-control" id="country" required>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="region" class="form-label">Region/State</label>
+                            <input type="text" class="form-control" id="region" required>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="area" class="form-label">Area/City</label>
+                            <input type="text" class="form-control" id="area" required>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-lg">Analyze Location</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="loading" id="loading">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="mt-2">Analyzing weather data and generating insights...</p>
+        </div>
+        
+        <div id="results">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-info text-white">
+                            <h2 class="h5 mb-0">Current Weather</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="weather-icon" id="current-icon">☀️</div>
+                            <h3 class="text-center" id="current-condition">Partly Cloudy</h3>
+                            <div class="row text-center mt-3">
+                                <div class="col-4">
+                                    <p class="mb-1"><strong>Temperature</strong></p>
+                                    <p id="current-temp">22°C</p>
+                                </div>
+                                <div class="col-4">
+                                    <p class="mb-1"><strong>Humidity</strong></p>
+                                    <p id="current-humidity">65%</p>
+                                </div>
+                                <div class="col-4">
+                                    <p class="mb-1"><strong>Wind Speed</strong></p>
+                                    <p id="current-wind">15 km/h</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-secondary text-white">
+                            <h2 class="h5 mb-0">Weather 30 Years Ago</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="weather-icon" id="historical-icon">☀️</div>
+                            <h3 class="text-center" id="historical-condition">Sunny</h3>
+                            <div class="row text-center mt-3">
+                                <div class="col-4">
+                                    <p class="mb-1"><strong>Temperature</strong></p>
+                                    <p id="historical-temp">20°C</p>
+                                </div>
+                                <div class="col-4">
+                                    <p class="mb-1"><strong>Humidity</strong></p>
+                                    <p id="historical-humidity">70%</p>
+                                </div>
+                                <div class="col-4">
+                                    <p class="mb-1"><strong>Wind Speed</strong></p>
+                                    <p id="historical-wind">12 km/h</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card mt-4">
+                <div class="card-header bg-success text-white">
+                    <h2 class="h5 mb-0">Energy Analysis & Recommendations</h2>
+                </div>
+                <div class="card-body">
+                    <div class="analysis-section">
+                        <h4>Renewable Energy Potential</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><strong>Solar Potential:</strong> <span id="solar-potential">127.50 kWh/m²/day</span></p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><strong>Wind Potential:</strong> <span id="wind-potential">12.00 kWh/day for a standard turbine</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="analysis-section">
+                        <h4>Climate Change Impact</h4>
+                        <p><strong>Temperature Change:</strong> <span id="temp-change">2.0°C increase over 30 years</span></p>
+                    </div>
+                    
+                    <div class="analysis-section">
+                        <h4>Recommendations</h4>
+                        <ul id="recommendations">
+                            <li>High solar potential - consider installing photovoltaic panels</li>
+                            <li>Moderate wind potential - small wind turbines could supplement energy needs</li>
+                            <li>Implement energy storage systems to maximize renewable utilization</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="analysis-section">
+                        <h4>Grid Integration</h4>
+                        <p id="grid-integration">Good conditions for connecting renewable sources to the electrical grid</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card mt-4">
+                <div class="card-header bg-warning text-dark">
+                    <h2 class="h5 mb-0">Visual Analysis</h2>
+                </div>
+                <div class="card-body text-center">
+                    <img id="analysis-image" src="" alt="Weather Analysis Chart" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
