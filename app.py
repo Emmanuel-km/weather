@@ -15,3 +15,7 @@ def create_app():
     def hello(name=None):
         return render_template('hello.html', name=name)
     return app
+
+if __name__ == '__main__':
+    app = create_app()
+    app.run(debug=True)
