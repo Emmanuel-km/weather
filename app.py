@@ -41,7 +41,7 @@ def index():
 
         except Exception as e:
             print("An unexpected error occurred:", str(e))
-    return render_template('index.html')
+    return render_template('index.html', weather=weather_data)
 
 if __name__ == '__main__':
     app.run(debug=True)
