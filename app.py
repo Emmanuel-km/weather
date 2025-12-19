@@ -1,15 +1,14 @@
-from flask import Flask, render_template, request
+import requests
+import pandas as pd
 
-app = Flask(__name__)
+base_url="http://api.weatherstack.com/current"
+key=open('personal.txt','r').read()
+city="Wote"
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+url=f"{base_url}?access_key={key}&query={city}"
 
-@app.route('/welcome', methods=['POST'])
-def welcome():
-    name = request.form.get('name')
-    return render_template('welcome.html', name=name)
+responce=requests.get(url)
+data=responce.json()
+#data=pd.DataFrame(data)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+print(data)
