@@ -13,7 +13,7 @@ def index():
         if request.method == 'POST':
             base_url="http://api.weatherstack.com/current"
             key=open('personal.txt','r').read()
-            city="Wote"
+            city=request.form.get('city')
 
             url=f"{base_url}?access_key={key}&query={city}"
 

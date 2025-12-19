@@ -8,6 +8,30 @@
     <p>Welcome to the weather information page. 
         Here you can find the latest updates on
          weather of a city that you are interested in.</p>
+    <form method="POST" action="/">
+   <input type="text" name="city">
+   <button type="submit">Submit</button>
+    </form>
+    
+    {% if weather %}
+    <div class="result-box">
+        <h3>Location: {{ weather.City }}, {{ weather.Country }}</h3>
+        
+        <p><strong>Region:</strong> {{ weather.Region }}</p>
+        <p><strong>Temperature:</strong> {{ weather.Temperature }}°C</p>
+        <p><strong>Wind:</strong> {{ weather.Wind_speed }} km/h ({{ weather.Wind_direction }}, {{ weather.Wind_degree }}°)</p>
+        <p><strong>Cloud Cover:</strong> {{ weather.Cloudcover }}%</p>
+        
+        <hr>
+        <h4>Astronomical Data</h4>
+        <p><strong>Sunrise:</strong> {{ weather.Sunrise }}</p>
+        <p><strong>Sunset:</strong> {{ weather.Sunset }}</p>
+        <p><strong>Moon Phase:</strong> {{ weather.Moon_phase }}</p>
+    </div>
+    {% endif %}
+
+    {% if error %}  
+    {% endif %}
     
 </body>
 </html>
