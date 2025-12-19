@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Weather page</title>
+    <title>Weather API</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 40px; }
+        .result-box { margin-top: 20px; border-left: 4px solid #333; padding-left: 15px; }
+    </style>
 </head>
 <body>
-    <h1>Weather Information</h1>
-    <p>Welcome to the weather information page. 
-        Here you can find the latest updates on
-         weather of a city that you are interested in.</p>
-    <form method="POST" action="/">
-   <input type="text" name="city">
-   <button type="submit">Submit</button>
-    </form>
+
+    <h2>Weather Information System</h2>
     
+    <form method="POST">
+        <input type="text" name="city" placeholder="Enter City Name" required>
+        <button type="submit">Get Data</button>
+    </form>
+
     {% if weather %}
     <div class="result-box">
         <h3>Location: {{ weather.City }}, {{ weather.Country }}</h3>
@@ -30,8 +33,5 @@
     </div>
     {% endif %}
 
-    {% if error %}  
-    {% endif %}
-    
 </body>
 </html>

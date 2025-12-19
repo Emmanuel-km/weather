@@ -34,14 +34,13 @@ def index():
                 "wind direction": [data['current']['wind_dir']],
                 "cloudcover": [data['current']['cloudcover']]
                 }
-            df = pd.DataFrame(weather_data)
-            return render_template('index.html', tables=[df.to_html(classes='data')], titles=df.columns.values)
         except KeyError:
             print("Error retrieving data:", data.get("error", "Unknown error"))
 
         except Exception as e:
             print("An unexpected error occurred:", str(e))
-    return render_template('index.html', weather=weather_data)
-
+        return render_template('index.html', weather=weather_data)
+    else:
+        return render_template('index.html', weather=None)
 if __name__ == '__main__':
     app.run(debug=True)
