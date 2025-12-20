@@ -1,4 +1,12 @@
+<hr>
+
 # weather
 analysing weather patterns and energy
-#website
+
+<hr>
+
+#website 🪵👌
+<br>
+
+
 https://weather-aj7d.onrender.com/
