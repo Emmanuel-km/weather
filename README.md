@@ -10,3 +10,6 @@ analysing weather patterns and energy
 
 
 https://weather-aj7d.onrender.com/
+
+
+<hr>
