@@ -7,7 +7,7 @@ analysing weather patterns and energy
 
 <hr>
 
-#website 🪵👌.
+#website 🪵👌
 <br>
 
 
